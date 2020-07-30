@@ -30,11 +30,17 @@ class ViewController: UIViewController {
         }
         
         getData(.popular) { (movies) in
-            self.popular = movies
+            OperationQueue.main.addOperation {
+                self.popular = movies
+                self.movieTableView.reloadData()
+            }
         }
         
         getData(.upcoming) { (movies) in
-            self.upcoming = movies
+            OperationQueue.main.addOperation {
+                self.upcoming = movies
+                self.movieTableView.reloadData()
+            }
         }
     }
     
@@ -60,16 +66,39 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nowPlaying.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
         
-        cell.textLabel?.text = nowPlaying[indexPath.row].title
-        cell.detailTextLabel?.text = nowPlaying[indexPath.row].overview
+        switch indexPath.row {
+        case 0:
+            cell.SectionNameLabel.text = "Now Playing"
+            cell.movies = self.nowPlaying
+            cell.collectionView.reloadData()
+            break
+        case 1:
+            cell.SectionNameLabel.text = "Up Coming"
+            cell.movies = self.upcoming
+            cell.collectionView.reloadData()
+            break
+        case 2:
+            cell.SectionNameLabel.text = "Popular"
+            cell.movies = self.popular
+            cell.collectionView.reloadData()
+            break
+        default:
+            cell.SectionNameLabel.text = ""
+            cell.movies = [Movie]()
+            break
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
     
     

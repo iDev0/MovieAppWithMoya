@@ -15,6 +15,8 @@
 		D37C9B4724CD31280041ED6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37C9B4524CD31280041ED6D /* LaunchScreen.storyboard */; };
 		D37C9B4F24CD31820041ED6D /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C9B4E24CD31820041ED6D /* MovieService.swift */; };
 		D3B9B62824D0728D001C8395 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9B62724D0728D001C8395 /* Movie.swift */; };
+		D3B9B62E24D31633001C8395 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9B62D24D31633001C8395 /* MovieTableViewCell.swift */; };
+		D3B9B63024D31CDA001C8395 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9B62F24D31CDA001C8395 /* CustomCollectionViewCell.swift */; };
 		F2BB6FD1F05A7DA1EDDC07CF /* Pods_MovieAppWithMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A0C2A431DC2CED7401EEC /* Pods_MovieAppWithMoya.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		D37C9B4824CD31280041ED6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D37C9B4E24CD31820041ED6D /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		D3B9B62724D0728D001C8395 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		D3B9B62D24D31633001C8395 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		D3B9B62F24D31CDA001C8395 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				D37C9B4524CD31280041ED6D /* LaunchScreen.storyboard */,
 				D37C9B4824CD31280041ED6D /* Info.plist */,
 				D3B9B62724D0728D001C8395 /* Movie.swift */,
+				D3B9B62D24D31633001C8395 /* MovieTableViewCell.swift */,
+				D3B9B62F24D31CDA001C8395 /* CustomCollectionViewCell.swift */,
 			);
 			path = MovieAppWithMoya;
 			sourceTree = "<group>";
@@ -213,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37C9B3F24CD31270041ED6D /* ViewController.swift in Sources */,
+				D3B9B63024D31CDA001C8395 /* CustomCollectionViewCell.swift in Sources */,
 				D37C9B3B24CD31270041ED6D /* AppDelegate.swift in Sources */,
+				D3B9B62E24D31633001C8395 /* MovieTableViewCell.swift in Sources */,
 				D37C9B4F24CD31820041ED6D /* MovieService.swift in Sources */,
 				D37C9B3D24CD31270041ED6D /* SceneDelegate.swift in Sources */,
 				D3B9B62824D0728D001C8395 /* Movie.swift in Sources */,
