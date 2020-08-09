@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FloatRatingView
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var ratingView: FloatRatingView!
+    
 }

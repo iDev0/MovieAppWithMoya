@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import ProgressHUD
 
 class ViewController: UIViewController {
 
@@ -21,6 +22,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        ProgressHUD.show()
         
         getData(.nowPlaying) { (movies) in
             OperationQueue.main.addOperation {
@@ -41,7 +44,10 @@ class ViewController: UIViewController {
                 self.upcoming = movies
                 self.movieTableView.reloadData()
             }
+            
         }
+        
+        ProgressHUD.dismiss()
     }
     
     
@@ -91,7 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 300
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -109,6 +115,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 45
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
+        let collectionCell = cell.collectionView.indexPathsForSelectedItems
+        print(collectionCell)
     }
     
     

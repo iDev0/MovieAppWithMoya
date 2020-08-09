@@ -24,7 +24,7 @@ struct Movie: Codable {
     let popularity: Float
     let voteCount: Int
     let video: Bool
-    let voteAverage: Float
+    let voteAverage: Double
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -59,7 +59,7 @@ struct Movie: Codable {
         popularity          = try values.decode(Float.self, forKey: .popularity)
         voteCount           = try values.decode(Int.self, forKey: .voteCount)
         video               = try values.decode(Bool.self, forKey: .video)
-        voteAverage         = try values.decode(Float.self, forKey: .voteAverage)
+        voteAverage         = try values.decode(Double.self, forKey: .voteAverage)
     }
 }
 

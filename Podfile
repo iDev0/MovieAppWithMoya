@@ -8,6 +8,8 @@ target 'MovieAppWithMoya' do
   pod 'Moya'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
+  pod 'ProgressHUD'
+  pod 'FloatRatingView'
 
   # Pods for MovieAppWithMoya
 

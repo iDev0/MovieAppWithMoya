@@ -11,6 +11,7 @@ import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
 
+    
     public var movies = [Movie]() {
         didSet {
             self.collectionView.reloadData()
@@ -55,30 +56,12 @@ extension MovieTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
             cell.poster.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(imageName)"), placeholder: UIImage(systemName: "photo"))
         }
             
-        cell.title.text = movies[indexPath.row].title
-        
-        
+        cell.title.text = movies[indexPath.row].title        
+        cell.ratingView.backgroundColor = .clear
+        cell.ratingView.type = .floatRatings
+        cell.ratingView.rating = movies[indexPath.row].voteAverage / 2
         return cell
         
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 10, height: CGFloat(100))
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 3.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 3.0
-    }
-    
-    
-    
     
 }
