@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
 
-    public var movies = [Movie]()
+    public var movies = [Movie]() {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     
     @IBOutlet weak var SectionNameLabel: UILabel!
 
@@ -44,15 +49,12 @@ extension MovieTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CustomCollectionViewCell
         
-        
+        // sdwebimage : objective-c
+        // kingFisher : swift        
         if let imageName = movies[indexPath.row].posterPath {
-            let image = URL(string: "https://image.tmdb.org/t/p/w500/\(imageName)")
-            let imageData = try! Data(contentsOf: image!)
-            cell.poster.image = UIImage(data: imageData)
-        } else {
-            cell.poster.image = UIImage(systemName: "photo")
+            cell.poster.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(imageName)"), placeholder: UIImage(systemName: "photo"))
         }
-                
+            
         cell.title.text = movies[indexPath.row].title
         
         
@@ -61,7 +63,19 @@ extension MovieTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 10, height: CGFloat(100))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 3.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 3.0
     }
     
     

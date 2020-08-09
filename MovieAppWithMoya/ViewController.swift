@@ -65,33 +65,26 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
         
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            cell.SectionNameLabel.text = "Now Playing"
             cell.movies = self.nowPlaying
-            cell.collectionView.reloadData()
-            break
         case 1:
-            cell.SectionNameLabel.text = "Up Coming"
             cell.movies = self.upcoming
-            cell.collectionView.reloadData()
-            break
         case 2:
-            cell.SectionNameLabel.text = "Popular"
             cell.movies = self.popular
-            cell.collectionView.reloadData()
-            break
         default:
-            cell.SectionNameLabel.text = ""
             cell.movies = [Movie]()
-            break
         }
         
         return cell
@@ -100,6 +93,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Now Playing"
+        case 1:
+            return "UpComing"
+        case 2:
+            return "Popular"
+        default:
+            return ""
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
+    }
+    
+    
     
     
 }

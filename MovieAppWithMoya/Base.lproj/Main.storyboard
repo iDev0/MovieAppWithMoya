@@ -27,16 +27,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SectionNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1L-e5-DqS">
-                                                    <rect key="frame" x="20" y="10" width="394" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4jA-CV-kMj">
-                                                    <rect key="frame" x="20" y="41" width="364" height="145"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="181"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nCr-LW-l83">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="3" minimumInteritemSpacing="3" id="nCr-LW-l83">
                                                         <size key="itemSize" width="142" height="142"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -44,7 +38,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="qAY-s7-ozd" customClass="CustomCollectionViewCell" customModule="MovieAppWithMoya" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="1.5" width="142" height="142"/>
+                                                            <rect key="frame" x="0.0" y="19.5" width="142" height="142"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HIn-oM-lqc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
@@ -84,17 +78,13 @@
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4jA-CV-kMj" firstAttribute="leading" secondItem="Nv6-ib-6sv" secondAttribute="leading" constant="20" id="A1c-EI-YIW"/>
-                                                <constraint firstAttribute="trailing" secondItem="4jA-CV-kMj" secondAttribute="trailing" constant="30" id="Lab-Bz-v9M"/>
-                                                <constraint firstItem="V1L-e5-DqS" firstAttribute="top" secondItem="Nv6-ib-6sv" secondAttribute="top" constant="10" id="SDr-pF-hTW"/>
-                                                <constraint firstAttribute="trailing" secondItem="V1L-e5-DqS" secondAttribute="trailing" id="WZO-Ko-Zsq"/>
-                                                <constraint firstItem="4jA-CV-kMj" firstAttribute="top" secondItem="V1L-e5-DqS" secondAttribute="bottom" constant="10" id="cwM-NR-ned"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4jA-CV-kMj" secondAttribute="bottom" constant="6" id="fpI-7K-COK"/>
-                                                <constraint firstItem="V1L-e5-DqS" firstAttribute="leading" secondItem="Nv6-ib-6sv" secondAttribute="leading" constant="20" id="hEZ-m6-D4N"/>
+                                                <constraint firstItem="4jA-CV-kMj" firstAttribute="leading" secondItem="Nv6-ib-6sv" secondAttribute="leadingMargin" id="S4H-tq-lvt"/>
+                                                <constraint firstItem="4jA-CV-kMj" firstAttribute="top" secondItem="Nv6-ib-6sv" secondAttribute="topMargin" id="Vq3-sU-fMN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4jA-CV-kMj" secondAttribute="bottom" id="Xli-GZ-ack"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4jA-CV-kMj" secondAttribute="trailing" id="oCt-QJ-aEw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="SectionNameLabel" destination="V1L-e5-DqS" id="Nwp-jI-DO0"/>
                                             <outlet property="collectionView" destination="4jA-CV-kMj" id="dgn-VF-l55"/>
                                         </connections>
                                     </tableViewCell>
