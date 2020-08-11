@@ -10,6 +10,8 @@ import UIKit
 import Moya
 import ProgressHUD
 
+
+
 class ViewController: UIViewController {
 
     let movieProvider = MoyaProvider<MovieService>()
@@ -66,6 +68,8 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
 }
 
 
@@ -81,6 +85,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
+        
+        cell.delegate = self
+        cell.sectionIndex = indexPath.section
         
         switch indexPath.section {
         case 0:
@@ -122,8 +129,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let collectionCell = cell.collectionView.indexPathsForSelectedItems
         print(collectionCell)
     }
+}
+
+extension ViewController: CustomCellDelegate {
     
-    
-    
+    func didSelectCell(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, section: Int) {
+        let detailVC = self.storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController
+        
+        switch section {
+        case 0:
+            detailVC?.movie = self.nowPlaying[indexPath.row]
+        case 1:
+            detailVC?.movie = self.upcoming[indexPath.row]
+        case 2:
+            detailVC?.movie = self.popular[indexPath.row]
+        default:
+            detailVC?.movie = nil
+        }
+                
+        self.present(detailVC!, animated: true, completion: nil)
+    }
     
 }

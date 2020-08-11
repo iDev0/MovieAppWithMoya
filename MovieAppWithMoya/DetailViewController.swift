@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import FloatRatingView
 
 class DetailViewController: UIViewController {
 
     public var movie: Movie?
-    public var id: Int = 0
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var ratingView: FloatRatingView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        print("movie id is, \(id)")
+        if let model = movie {
+            titleLabel.text = model.title
+            ratingView.rating = model.voteAverage / 2
+        }
         
         // Do any additional setup after loading the view.
     }

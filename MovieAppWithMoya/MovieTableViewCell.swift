@@ -9,16 +9,23 @@
 import UIKit
 import Kingfisher
 
+protocol CustomCellDelegate {
+    func didSelectCell(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, section: Int)
+}
+
+
 class MovieTableViewCell: UITableViewCell {
 
+    var delegate: CustomCellDelegate?
     
+    public var sectionIndex: Int = 0
     public var movies = [Movie]() {
         didSet {
             self.collectionView.reloadData()
         }
     }
     
-    @IBOutlet weak var SectionNameLabel: UILabel!
+    
 
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -37,10 +44,11 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
 
 extension MovieTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -60,8 +68,16 @@ extension MovieTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
         cell.ratingView.backgroundColor = .clear
         cell.ratingView.type = .floatRatings
         cell.ratingView.rating = movies[indexPath.row].voteAverage / 2
+        
+        
         return cell
         
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // print("collection View selected section is \(collectionView)")
+        
+        delegate?.didSelectCell(collectionView, didSelectItemAt: indexPath, section: sectionIndex)
+    }
 }

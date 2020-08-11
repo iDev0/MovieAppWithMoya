@@ -100,7 +100,6 @@
                                                                 <outlet property="poster" destination="TDg-na-WLj" id="6lC-V0-DOR"/>
                                                                 <outlet property="ratingView" destination="iD7-ui-TQM" id="twA-s2-nyb"/>
                                                                 <outlet property="title" destination="UGe-jA-gZ0" id="4nn-WQ-D9k"/>
-                                                                <segue destination="96Q-XG-PfT" kind="show" id="WLz-Rl-vO5"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -141,21 +140,52 @@
             </objects>
             <point key="canvasLocation" x="74" y="121"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="HEI-vb-9dV">
             <objects>
-                <viewController id="96Q-XG-PfT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" id="96Q-XG-PfT" customClass="DetailViewController" customModule="MovieAppWithMoya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aJd-7I-FK4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHx-aV-p1g">
+                                <rect key="frame" x="63" y="207" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ph2-6h-Ab3" customClass="FloatRatingView" customModule="FloatRatingView">
+                                <rect key="frame" x="53" y="310" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="star" catalog="system"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="star.fill" catalog="system"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PCZ-Zi-NSj"/>
                     </view>
                     <navigationItem key="navigationItem" id="hwx-E9-hJB"/>
+                    <connections>
+                        <outlet property="ratingView" destination="Ph2-6h-Ab3" id="dCq-O9-hlN"/>
+                        <outlet property="titleLabel" destination="wHx-aV-p1g" id="GMc-nP-GJo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcJ-yu-ILM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="121"/>
+            <point key="canvasLocation" x="789.85507246376812" y="110.49107142857143"/>
         </scene>
     </scenes>
     <resources>
